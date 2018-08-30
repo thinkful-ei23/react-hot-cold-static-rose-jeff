@@ -11,8 +11,8 @@ export default class Game extends React.Component {
         this.state = {
             feedback: 'Make your guess!',
             count: 3,
-            guesses: [50, 75, 60]
-
+            guesses: [],
+            answer: Math.ceil(Math.random() * 100)
         }
     }
 
