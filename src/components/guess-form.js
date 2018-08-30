@@ -7,32 +7,44 @@ export default class GuessForm extends React.Component {
     //     super(props);
     // }
 
-    
 
-    onSubmit(e) {
-        let count = 0; 
 
-        event.preventDefault();
-        console.log('submitted');
+
+        onSubmit(e) {
+        e.preventDefault();
+        const guessValue = this.userGuess.value;
+        console.log(guessValue);
+    }
+
+    addGuess(e) {
+        e.preventDefault();
         this.setState({
-            count: count++
+            guesses: [...this.state.guesses, this.input.current.value]
+
         });
+
     }
 
-    guessCount() {
-        
-    }
 
-    render() { 
+    // guessCount() {
+    //
+    // }
+
+    render() {
 
     return (
         <form onSubmit={(e) => this.onSubmit(e)}>
             <input
-                type="text" name="userGuess" id="userGuess"
-                className="text" maxLength="3" autoComplete="off"
-                placeholder="Enter your Guess" required 
+                type="text"
+                ref={input => (this.userGuess = input)}
+                name="userGuess"
+                id="userGuess"
+                className="text"
+                maxLength="3"
+                autoComplete="off"
+                placeholder="Enter your Guess" required
                 />
-            <input 
+            <input
                    type="submit"
                    id="guessButton"
                    className="button"
@@ -40,6 +52,6 @@ export default class GuessForm extends React.Component {
                    value="Guess" />
         </form>
     );
-    } 
+    }
 };
 

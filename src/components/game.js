@@ -10,10 +10,10 @@ export default class Game extends React.Component {
         super(props);
         this.state = {
             feedback: 'Make your guess!',
-            count: 3,
-            guesses: [],
+            guesses: [12, 45, 67],
             answer: Math.ceil(Math.random() * 100)
         }
+
     }
 
     render() {
@@ -23,7 +23,7 @@ export default class Game extends React.Component {
             <div>
                 <Header/>
                 <GuessSection feedback="Make your guess!"/>
-                <GuessCount count={3}/>
+                <GuessCount guessCount={this.state.guesses.length}  />
                 <GuessList guesses={[10, 15, 25]}/>
             </div>
         );
